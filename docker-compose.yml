@@ -5,6 +5,6 @@ services:
     container_name: path-generator
     build: .
     ports:
-      - "82:3000"
+      - "82:82"
     command: node /app/app.js
     restart: unless-stopped
