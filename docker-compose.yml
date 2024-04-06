@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  path-generator:
+    container_name: path-generator
+    build: .
+    command: node app.js
+    restart: unless-stopped
