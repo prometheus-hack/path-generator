@@ -6,5 +6,5 @@ services:
     build: .
     ports:
       - "82:3000"
-    command: node app.js
+    command: node /app/app.js
     restart: unless-stopped

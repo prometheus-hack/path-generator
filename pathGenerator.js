@@ -45,15 +45,10 @@ const pointGuard = z.object({
 
 const typeGuard = z.object({
     points: pointGuard.array().length(2),
-    viewport: z.object({
-        topLeft: pointGuard,
-        bottomRight: pointGuard,
-        zoom: z.number()
-    }),
 });
 
 
-const generate = async ({viewport, points}) => {
+const generate = async ({points}) => {
     const data = {
         'locale': 'ru',
         'point_a_name': 'Source',
@@ -61,7 +56,6 @@ const generate = async ({viewport, points}) => {
         'points': points.map(item => ({...item, type: "pedo"})),
         'purpose': 'autoSearch',
         'type': 'online5',
-        'viewport': viewport
     };
     return axios.post(
         'https://routing.api.2gis.com/carrouting/6.0.0/global',
